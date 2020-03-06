@@ -1,5 +1,5 @@
 # Subvent
-**Define**, **Reference** and Control DOM event subscriptions. **Update**, **unmount** and **mount** methods available.
+**Define** and **reference** DOM event subscriptions. **`update`**, **`unmount`** and **`mount`** them.
 
 ## Installation
 #### In node projects:
