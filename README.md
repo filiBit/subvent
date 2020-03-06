@@ -40,8 +40,8 @@ const evSub2 = on({node: titleEl, name: 'click', handler: clickHandler})
   // mount it when needed
   evSub1.mount()
 ```
-## Online Playground:
-Try it out on **[codesandbox](https://codesandbox.io/s/subvent-playground-ttde9)**
+## Online Playgrounds:
+Try it out on **[CodePen](https://codepen.io/filibit/pen/KKpXLjb)**, or **[CodeSandbox](https://codesandbox.io/s/subvent-playground-ttde9)**
 ___
 ___
 ## Documentation
