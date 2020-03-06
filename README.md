@@ -1,5 +1,5 @@
 # Subvent
-**Define** and **Reference** DOM event subscriptions. **Update**, **unmount** and **mount** them.
+**Define**, **Reference** and Control DOM event subscriptions. **Update**, **unmount** and **mount** methods available.
 
 ## Installation
 #### In node projects:
@@ -13,7 +13,7 @@ const {on} = require('subvent')
 #### In browsers:
 ```html
 <head>
-  <script src="unpkg.com/subvent@1.0.0./dist/browser/subvent.js"></script>
+  <script src="https://unpkg.com/subvent@1.0.0/dist/browser/subvent.js"></script>
 </head>
 ```
 
