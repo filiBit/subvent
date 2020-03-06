@@ -1,0 +1,42 @@
+{
+  "name": "subvent",
+  "version": "1.0.0",
+  "description": "Define DOM Event subscriptions",
+  "main": "dist/cjs/subvent.js",
+  "scripts": {},
+  "keywords": [
+    "dom",
+    "event",
+    "listener",
+    "subscription",
+    "javascript",
+    "library"
+  ],
+  "author": {
+    "name": "Filip Biterski",
+    "email": "filip.biterski@gmail.com",
+    "url": "https://github.com/filiBit"
+  },
+  "files": [
+    "dist/cjs/",
+    "dist/browser/",
+    "README.md",
+    "LICENSE.txt"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filiBit/subvent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/filiBit/subvent/issues",
+    "email": "filip.biterski@gmail.com"
+  },
+  "engines": { "npm": "*", "node" : "*" },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  }
+}
