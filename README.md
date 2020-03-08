@@ -1,13 +1,15 @@
 # Subvent
 **Define** and **reference** DOM event subscriptions. **`update`**, **`unmount`** and **`mount`** them.
 
+*Abstracts DOM's `addEventListener`, and `removeEventListener` methods into a subscription object.*
+
 ## Installation
 #### In node projects:
 ```
 npm install --save subvent
 ```
 ```js
-const {on} = require('subvent')
+const {Subvent} = require('subvent')
 ```
 
 #### In browsers:
@@ -18,28 +20,50 @@ const {on} = require('subvent')
 ```
 
 ## Usage
+Get the DOM nodes first:
+```js
+const el1 = document.getElementById('element-1');
+const el2 = // ...
+const el3 = // ...
+```
+
 **Define the event subscription**
 ```js
-// get a dom Node
-const titleEl = document.getElementById('titleEl')
-
-// define the event subscription
-const evSub1 = on(titleEl, 'click', clickHandler)
-
-// also, supports an object argument
-const evSub2 = on({node: titleEl, name: 'click', handler: clickHandler})
+const evtSub1 = new Subvent(el1, 'click', () => {...});
 ```
-**Manage the subscription:**
+- creates an instance that represents the event subscription
+
+The shorthand **`on`** function is also available:
 ```js
-  // update any value or values
-  // (no need to unmount and mount afterwards, this is handled automatically)
-  evSub1.update({name: 'mouseenter',})
-
-  // unmount it when needed
-  evSub1.unmount()
-  // mount it when needed
-  evSub1.mount()
+const evtSub2 = on(el2, 'click', () => {...});
 ```
+
+If preferred, use an object to pass parameters:
+```js
+const evtSub3 = on({node: el3, name: 'click', handler: () => {...}});
+```
+
+### Manage the subscription
+
+**Unmount it:**
+```js
+evtSub1.unmount();
+evtSub1.isMounted; // false
+```
+
+**Mount it:**
+```js
+evtSub1.mount()
+evtSub1.isMounted; // true
+```
+
+**Update it:**
+```js
+  evtSub1.update({name: 'mouseenter',})
+```
+- takes care of mounting and unmounting for us
+- only changes the specifed arguments, retaining the old variables.
+
 ## Online Playgrounds:
 Try it out on **[CodePen](https://codepen.io/filibit/pen/KKpXLjb)**, or **[CodeSandbox](https://codesandbox.io/s/subvent-playground-ttde9)**
 ___
