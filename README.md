@@ -15,7 +15,7 @@ const {Subvent} = require('subvent')
 #### In browsers:
 ```html
 <head>
-  <script src="https://unpkg.com/subvent@1.0.0/dist/browser/subvent.js"></script>
+  <script src="https://unpkg.com/subvent@1.1.0/dist/iife/subvent.js"></script>
 </head>
 ```
 
