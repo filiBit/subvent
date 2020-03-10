@@ -37,6 +37,18 @@ Subvent.prototype.update = function() {
   if (shouldRemount) this.mount()
 }
 
+Subvent.prototype.duplicate = function() {
+  // method for instantiating the constructor
+  // with `defaults` parameters set to this instance
+  
+  if (arguments[0].length !== undefined) {
+    arguments[4] = this
+  } else {
+    arguments[0].defaults = this
+  }
+  return new this.constructor(arguments)
+}
+
 Subvent.prototype.initialize = function() {
   // method for constructing and updating Subvent instance
 
