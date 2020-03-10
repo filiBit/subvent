@@ -3,7 +3,11 @@
   "version": "1.0.1",
   "description": "Define DOM Event subscriptions",
   "main": "dist/cjs/subvent.js",
-  "scripts": {},
+  "browser": "dist/iife/subvent.js",
+  "module": "dist/esm/subvent.js",
+  "scripts": {
+    "build": "rollup --config"
+  },
   "keywords": [
     "dom",
     "event",
@@ -18,8 +22,7 @@
     "url": "https://github.com/filiBit"
   },
   "files": [
-    "dist/cjs/",
-    "dist/browser/",
+    "dist/",
     "README.md",
     "LICENSE.txt"
   ],
@@ -40,6 +43,8 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "rollup": "^2.0.2",
+    "rollup-plugin-terser": "^5.3.0"
   }
 }

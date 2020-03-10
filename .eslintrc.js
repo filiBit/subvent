@@ -9,9 +9,23 @@ module.exports = {
   ],
   overrides: [
     {
+      files: 'rollup.config.js',
+      parserOptions: {
+        sourceType: 'module'
+      },
+      env: {
+        es6: true,
+        node: true
+      }
+    },
+    {
       files: 'src/index.js',
+      parserOptions: {
+        sourceType: 'module'
+      },
       rules: {
-        "no-unused-vars": 0
+        "no-unused-vars": 0,
+        "es6": true
       }
     },
     {

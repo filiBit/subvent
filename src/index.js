@@ -1,10 +1,10 @@
-function on() {
+export function on() {
   // consider this function a shorthand for "new Subvent()" syntax
   return new Subvent(arguments)
 }
 
 // constructor function
-function Subvent() {
+export function Subvent() {
   // possible feature check to be included:
   // if (!document.addEventListener)
   //   throw new this.errorFactory(
