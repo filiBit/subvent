@@ -25,13 +25,15 @@ Get the DOM nodes first:
 const el1 = document.getElementById('element-1');
 const el2 = // ...
 const el3 = // ...
+const el4 = // ...
 ```
 
 **Define the event subscription**
 ```js
 const evtSub1 = new Subvent(el1, 'click', () => {...});
 ```
-- creates an instance that represents the event subscription
+- creates an instance of Subvent
+- the instance represents an event subscription
 
 The shorthand **`on`** function is also available:
 ```js
@@ -59,10 +61,17 @@ evtSub1.isMounted; // true
 
 **Update it:**
 ```js
-  evtSub1.update({name: 'mouseenter',})
+  evtSub2.update({name: 'dblclick',})
 ```
 - takes care of mounting and unmounting for us
 - only changes the specifed arguments, retaining the old variables.
+
+**Duplicate it:**
+```js
+const evtSub4 = evtSub3.duplicate({node: el4});
+```
+- uses Subvent's instance as a template for creating a new instance
+- instance being duplicated provides fallback values for undefined parameters
 
 ## Online Playgrounds:
 Try it out on **[CodePen](https://codepen.io/filibit/pen/KKpXLjb)**, or **[CodeSandbox](https://codesandbox.io/s/subvent-playground-ttde9)**
@@ -101,11 +110,12 @@ instance of `Subvent`
 
 
 ##### Methods
-  - **`Subvent.update()`** - redefines the subscription with new parameters overwriting the old properties, those not overwritten, retain the old value. It handles unmounting and mounting so You don't have to. It accepts the same parameter syntax as it's contructor (`Subvent`), except the fact that all arguments are optional (those not passed, retain the old value)
-  - **`Subvent.unmount()`** - calls `removeEventListener(this.name, this._handler_, this.options)`
-  - **`Subvent.mount()`** - calls `addEventListener(this.name, this._handler_, this.options)`
+  - **`Subvent.prototype.update()`** - redefines the subscription with new parameters overwriting the old properties, those not overwritten, retain the old value. It handles unmounting and mounting so You don't have to. It accepts the same parameter syntax as it's contructor (`Subvent`), except the fact that all arguments are optional (those not passed, retain the old value)
+  - **`Subvent.prototype.unmount()`** - calls `removeEventListener(this.name, this._handler_, this.options)`
+  - **`Subvent.prototype.mount()`** - calls `addEventListener(this.name, this._handler_, this.options)`
   - **`Subvent.handler`** - maps to `handler` parameter (see above)
-  - **`Subvent._handler`** - if `handler` is a function, `_handler` wraps it, and ensures the `handler` is called with `this` value `apply`ed to it.
+  - **`Subvent._handler`** - if `handler` is a function, `_handler` wraps it, and ensures the `handler` is called with `thisArg` value `apply`ed to it
+  - **`Subvent.prototype.duplicate`** - creates a new instance providing it's own properties as fallback values for undefined parameters
 ___
 ### on
 **`on`** is a so called "factory function" because it returns an instance, in this case an `Subvent` instance. The function also has the same syntax as the `Subvent`. Consider it a shorthand for `Subvent` syntax.
