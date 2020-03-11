@@ -1,12 +1,12 @@
 # Subvent
-**Define** and **reference** DOM event subscriptions. **`update`**, **`unmount`** and **`mount`** them.
+**Create** event subscriptions in DOM. **Manage** them with `update`, `unmount` and `mount` methods.
 
 *Abstracts DOM's `addEventListener`, and `removeEventListener` methods into a subscription object.*
 
 ## Installation
 #### In node projects:
 ```
-npm install --save subvent
+npm install subvent --save
 ```
 ```js
 import {Subvent} from 'subvent'
@@ -73,8 +73,11 @@ const evtSub4 = evtSub3.duplicate({node: el4});
 - uses Subvent's instance as a template for creating a new instance
 - instance being duplicated provides fallback values for undefined parameters
 
-## Online Playgrounds:
+### Online Playgrounds
 Try it out on **[CodePen](https://codepen.io/filibit/pen/KKpXLjb)**, or **[CodeSandbox](https://codesandbox.io/s/subvent-playground-ttde9)**
+
+### Read a blog post about the library
+[Subvent: Managing event subscriptions in DOM](https://dev.to/filibit/subvent-js-managing-dom-event-subscriptions-39g1)
 ___
 ___
 ## Documentation
