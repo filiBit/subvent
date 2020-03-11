@@ -9,7 +9,7 @@
 npm install --save subvent
 ```
 ```js
-const {Subvent} = require('subvent')
+import {Subvent} = from 'subvent'
 ```
 
 #### In browsers:
