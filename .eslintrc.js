@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  ignorePatterns: ["dist/"],
   env: {
     browser: true
   },
@@ -23,9 +24,11 @@ module.exports = {
       parserOptions: {
         sourceType: 'module'
       },
+      env: {
+        "es6": true
+      },
       rules: {
         "no-unused-vars": 0,
-        "es6": true
       }
     },
     {

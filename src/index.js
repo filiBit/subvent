@@ -12,9 +12,17 @@ export function Subvent() {
   //   )
 
   // construction:
-  this.isMounted = false // local instance state
-  this.initialize(arguments)
-  this.mount()
+  try {
+    this.isMounted = false // local instance state
+    this.initialize(arguments)
+    this.mount()
+  } catch (error) {
+    if (error instanceof this.InputError) {
+      console.error('Subvent: ', error.message)
+    } else {
+      throw error
+    }
+  }
 }
 
 Subvent.prototype.mount = function() {
@@ -40,7 +48,7 @@ Subvent.prototype.update = function() {
 Subvent.prototype.duplicate = function() {
   // method for instantiating the constructor
   // with `defaults` parameters set to this instance
-  
+
   if (arguments[0].length !== undefined) {
     arguments[4] = this
   } else {
@@ -67,8 +75,7 @@ Subvent.prototype.initialize = function() {
   }
 
   // error check: arguments length
-  if (!args.length)
-    throw this.errorFactory('No arguments have been specifed.')
+  if (!args.length) throw new this.InputError('No arguments specifed')
 
   // if the first argument is an object that wraps arguments
   // as it's properties set it to initArgs
@@ -118,14 +125,14 @@ Subvent.prototype.initialize = function() {
 
   // error check: check each argument
   if (!node || !node.nodeType)
-    throw this.errorFactory('node not specified, or of invalid type')
+    throw new this.InputError('Invalid node argument')
   if (!name || typeof name !== 'string')
-    throw this.errorFactory('name not specified, or of invalid type')
+    throw new this.InputError('Invalid name argument')
   if (
     !handler &&
     (typeof handler !== 'function' || typeof handler !== 'object')
   )
-    throw this.errorFactory('handler not specified, or of invalid type')
+    throw new this.InputError('Invalid handler argument')
 
   this.node = node
   this.name = name
@@ -142,8 +149,7 @@ Subvent.prototype.initialize = function() {
     this._handler = this._handler.bind(this)
 }
 
-Subvent.prototype.errorFactory = function(message) {
-  var err = new Error(message)
-  err.name = 'Subvent'
-  return err
+Subvent.prototype.InputError = function(message) {
+  Error.call(this)
+  this.message = message
 }
