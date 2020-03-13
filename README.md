@@ -15,7 +15,7 @@ import {Subvent} from 'subvent'
 #### In browsers:
 ```html
 <head>
-  <script src="https://unpkg.com/subvent@1.1.0/dist/iife/subvent.js"></script>
+  <script src="https://unpkg.com/subvent@1.1.2/dist/iife/subvent.js"></script>
 </head>
 ```
 
